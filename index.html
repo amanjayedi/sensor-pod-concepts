@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pocket Sensor Pod</title>
+<meta name="description" content="Pocket Sensor Pod: enclosure design concepts and carry concepts.">
+<style>
+  :root { --bg:#f4f4f2; --fg:#161616; --muted:#6b6b6b; --line:#d9d9d6; --card:#fff; --accent:#161616; --accent-fg:#fff; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg:#141414; --fg:#ececec; --muted:#9a9a9a; --line:#2c2c2c; --card:#1d1d1d; --accent:#ececec; --accent-fg:#141414; }
+  }
+  :root[data-theme="dark"] { --bg:#141414; --fg:#ececec; --muted:#9a9a9a; --line:#2c2c2c; --card:#1d1d1d; --accent:#ececec; --accent-fg:#141414; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; }
+  body { background:var(--bg); color:var(--fg); font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         -webkit-user-select:none; user-select:none; -webkit-touch-callout:none; }
+  header { max-width:1200px; margin:0 auto; padding:40px 16px 8px; }
+  h1 { font-size:clamp(24px,4vw,34px); font-weight:500; letter-spacing:-.01em; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 24px; }
+  nav { position:sticky; top:0; z-index:5; background:var(--bg); border-bottom:1px solid var(--line); }
+  .tabs { max-width:1200px; margin:0 auto; padding:10px 16px; display:flex; gap:8px; flex-wrap:wrap; }
+  .tab { appearance:none; border:1px solid var(--line); background:transparent; color:var(--fg); font:inherit; font-size:15px;
+         padding:8px 16px; border-radius:999px; cursor:pointer; }
+  .tab[aria-selected="true"] { background:var(--accent); color:var(--accent-fg); border-color:var(--accent); }
+  .tab .n { opacity:.6; margin-left:6px; font-size:13px; }
+  main { max-width:1200px; margin:0 auto; padding:24px 16px 64px; }
+  section[hidden] { display:none; }
+  .intro { color:var(--muted); margin:0 0 20px; max-width:70ch; }
+  figure { margin:0 0 24px; background:#fff; border:1px solid var(--line); border-radius:6px; overflow:hidden; position:relative; }
+  figure img { display:block; width:100%; height:auto; pointer-events:none; -webkit-user-drag:none; }
+  figure::after { content:""; position:absolute; inset:0; } /* shield over image */
+  footer { max-width:1200px; margin:0 auto; padding:0 16px 40px; color:var(--muted); font-size:13px; }
+  @media print { body * { display:none !important; } body::before { content:"Printing is disabled for this document."; display:block; padding:40px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Pocket Sensor Pod</h1>
+  <p class="sub">Enclosure design concepts and ways to carry the pod.</p>
+</header>
+<nav>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="t-design" aria-controls="design" aria-selected="true">Design Concepts<span class="n">7</span></button>
+    <button class="tab" role="tab" id="t-carry" aria-controls="carry" aria-selected="false">Carry Concepts<span class="n">10</span></button>
+  </div>
+</nav>
+<main>
+  <section id="design" role="tabpanel" aria-labelledby="t-design">
+    <p class="intro">Fifteen enclosure concepts, seven developed. Each houses a different subset of the kit: Raspberry Pi 5, air quality, GPS, light, thermal, AI and 360 cameras, LiDAR, touchscreen and battery.</p>
+    <figure><img src="img/p01.jpg" alt="Overview of fifteen enclosure concepts" width="1650" height="1275"></figure>
+    <figure><img src="img/p02.jpg" alt="Design 01, Umbrella" width="1650" height="1275" loading="lazy"></figure>
+    <figure><img src="img/p03.jpg" alt="Design 02, Handheld Scanner" width="1650" height="1275" loading="lazy"></figure>
+    <figure><img src="img/p04.jpg" alt="Design 03, Hive" width="1650" height="1275" loading="lazy"></figure>
+    <figure><img src="img/p05.jpg" alt="Design 04, Periscope" width="1650" height="1275" loading="lazy"></figure>
+    <figure><img src="img/p06.jpg" alt="Design 05, Pebble" width="1650" height="1275" loading="lazy"></figure>
+    <figure><img src="img/p07.jpg" alt="Design 06, Louvre Stack" width="1650" height="1275" loading="lazy"></figure>
+    <figure><img src="img/p08.jpg" alt="Design 07, Seed" width="1650" height="1275" loading="lazy"></figure>
+  </section>
+  <section id="carry" role="tabpanel" aria-labelledby="t-carry" hidden>
+    <p class="intro">Ten ways to carry the pod, from a backpack mast to a stationary tripod.</p>
+    <figure><img src="img/p09.jpg" alt="Carry 01 Backpack Mast and Carry 02 Sound Boom" width="1650" height="1275" loading="lazy"></figure>
+    <figure><img src="img/p10.jpg" alt="Carry 03 Handheld Scanner and Carry 04" width="1650" height="1275" loading="lazy"></figure>
+    <figure><img src="img/p11.jpg" alt="Carry 05 Walking Stick and Carry 06" width="1650" height="1275" loading="lazy"></figure>
+    <figure><img src="img/p12.jpg" alt="Carry 07 Bike Helmet Mount and Carry 08" width="1650" height="1275" loading="lazy"></figure>
+    <figure><img src="img/p13.jpg" alt="Carry 09 Stationary Tripod and Carry 10" width="1650" height="1275" loading="lazy"></figure>
+  </section>
+</main>
+<footer>Pocket Sensor Pod Design Concepts. View only.</footer>
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  function show(id, push) {
+    tabs.forEach(t => {
+      const on = t.getAttribute('aria-controls') === id;
+      t.setAttribute('aria-selected', on);
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (push) { history.replaceState(null, '', '#' + id); window.scrollTo({ top: 0 }); }
+  }
+  tabs.forEach(t => t.addEventListener('click', () => show(t.getAttribute('aria-controls'), true)));
+  if (location.hash === '#carry') show('carry');
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('dragstart', e => e.preventDefault());
+  document.addEventListener('keydown', e => {
+    const k = e.key.toLowerCase();
+    if ((e.ctrlKey || e.metaKey) && (k === 's' || k === 'p')) e.preventDefault();
+  });
+</script>
+</body>
+</html>
